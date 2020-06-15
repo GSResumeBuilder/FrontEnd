@@ -81,7 +81,9 @@ class Main extends React.Component {
         super(props);
         this.state = {
             activeStep: 0,
-            rows: []
+            rows: [],
+            projects: [],
+            workex: []
         }
     }
     handleNext = () => {
@@ -117,19 +119,46 @@ class Main extends React.Component {
             mobile: ""
         };
         this.setState({
-            rows: [...this.state.rows, item]
+            rows: [...this.state.rows, item],
         });
-        console.log(this.state.rows.length);
+    };
+    handleAddProject = () => {
+        const item = {
+            name: "",
+            mobile: ""
+        };
+        this.setState({
+            projects: [...this.state.projects, item],
+        });
+    };
+    handleAddWork = () => {
+        const item = {
+            name: "",
+            mobile: ""
+        };
+        this.setState({
+            workex: [...this.state.workex, item],
+        });
     };
     handleRemoveRow = () => {
         this.setState({
             rows: this.state.rows.slice(0, -1)
         });
     };
+    handleRemoveProject = () => {
+        this.setState({
+            projects: this.state.projects.slice(0, -1)
+        });
+    };
+    handleRemoveWork = () => {
+        this.setState({
+            workex: this.state.workex.slice(0, -1)
+        });
+    };
     getStepContent = (stepIndex) => {
         const { outlinedInputClasses } = this.props;
         const { classes } = this.props;
-
+        const { index } = this.state;
         switch (stepIndex) {
             case 0:
                 return (
@@ -406,13 +435,138 @@ class Main extends React.Component {
                             </tbody>
                         </table>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
-                            <Typography onClick={this.handleAddRow} style={{color: "blue"}}>+ Add More</Typography>
-                            {this.state.rows.length>0 ? (
+                            <Typography onClick={this.handleAddRow} style={{ color: "blue" }}>+ Add More</Typography>
+                            {this.state.rows.length > 0 ? (
                                 <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveRow} />
                             ) : (
-                                <div>
-                                </div>  
-                            )}
+                                    <div>
+                                    </div>
+                                )}
+                        </div>
+                    </div>
+                );
+            case 2:
+                return (
+                    <div>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
+                            Projects
+                    </Typography>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField id="outlined-basic" label="Title" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                            <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <table>
+                                <tbody>
+                                    {this.state.projects.map((item, idx) => (
+                                        <tr id="addr0" key={idx}>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField id="outlined-basic" label="Title" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
+                            <Typography onClick={this.handleAddProject} style={{ color: "blue" }}>+ Add More</Typography>
+                            {this.state.projects.length > 0 ? (
+                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveProject} />
+                            ) : (
+                                    <div>
+                                    </div>
+                                )}
+                        </div>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
+                            Work Experience
+                    </Typography>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField id="outlined-basic" label="Place" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                            <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <table>
+                                <tbody>
+                                    {this.state.workex.map((item, idx) => (
+                                        <tr id="addr0" key={idx}>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField id="outlined-basic" label="Place" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
+                            <Typography onClick={this.handleAddWork} style={{ color: "blue" }}>+ Add More</Typography>
+                            {this.state.workex.length > 0 ? (
+                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveWork} />
+                            ) : (
+                                    <div>
+                                    </div>
+                                )}
                         </div>
                     </div>
                 );
@@ -445,7 +599,7 @@ class Main extends React.Component {
                             </div>
                         )}
                 </div>
-                <div style={{ position: "absolute", bottom: "5vh", right: "2vw" }}>
+                <div style={{ position: "fixed", bottom: "5vh", right: "2vw" }}>
                     {activeStep === steps.length ? (
                         <div>
                             <Button onClick={this.handleReset}>Submit</Button>
