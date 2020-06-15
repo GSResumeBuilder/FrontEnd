@@ -25,7 +25,7 @@ import { Link, Router } from 'react-router-dom'
 const resblue = "#256DDA80";
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = (theme) => ({
     root: {
         width: '100%',
     },
@@ -51,9 +51,9 @@ const useStyles = makeStyles((theme) => ({
     },
     activeIcon: {},
     completedIcon: {}
-}));
+});
 
-const useOutlinedInputStyles = makeStyles(theme => ({
+const useOutlinedInputStyles = theme => ({
     root: {
         "& $notchedOutline": {
             borderWidth: "2px",
@@ -70,7 +70,7 @@ const useOutlinedInputStyles = makeStyles(theme => ({
     },
     focused: {},
     notchedOutline: {}
-}));
+});
 
 function getSteps() {
     return ['Personal', 'Academic', 'Projects', 'Platforms', 'Positions'];
