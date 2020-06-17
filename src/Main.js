@@ -21,9 +21,10 @@ import InputBase from '@material-ui/core/InputBase';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import { Link, Router } from 'react-router-dom'
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
 const resblue = "#256DDA80";
-
+const kindagrey = "#BEBEBE";
 
 const useStyles = (theme) => ({
     root: {
@@ -72,6 +73,16 @@ const useOutlinedInputStyles = theme => ({
     notchedOutline: {}
 });
 
+const GreenCheckbox = withStyles({
+    root: {
+      color: kindagrey,
+      '&$checked': {
+        color: resblue,
+      },
+    },
+    checked: {},
+  })((props) => <Checkbox color="default" {...props} />);
+
 function getSteps() {
     return ['Personal', 'Academic', 'Projects', 'Platforms', 'Positions'];
 }
@@ -83,9 +94,47 @@ class Main extends React.Component {
             activeStep: 0,
             rows: [],
             projects: [],
-            workex: []
+            workex: [],
+            core: [],
+            depth: [],
         }
     }
+
+
+    removeCore = (i) => {
+        const newTags = [ ...this.state.core ];
+        newTags.splice(i, 1);
+        this.setState({ core: newTags });
+    }
+    
+    removeDepth = (i) => {
+        const newTags = [ ...this.state.depth ];
+        newTags.splice(i, 1);
+        this.setState({ depth: newTags });
+    }
+
+    addCore = (e) => {
+        const val = e.target.value;
+        if (e.key === 'Enter' && val) {
+            if (this.state.core.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+                return;
+            }
+            this.setState({ core: [...this.state.core, val]});
+            this.tagInput1.value = null;
+        }
+    }
+
+    addDepth= (e) => {
+        const val = e.target.value;
+        if (e.key === 'Enter' && val) {
+            if (this.state.depth.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+                return;
+            }
+            this.setState({ depth: [...this.state.depth, val]});
+            this.tagInput2.value = null;
+        }
+    }
+
     handleNext = () => {
         this.setState(state => ({
             activeStep: this.state.activeStep + 1,
@@ -158,7 +207,7 @@ class Main extends React.Component {
     getStepContent = (stepIndex) => {
         const { outlinedInputClasses } = this.props;
         const { classes } = this.props;
-        const { index } = this.state;
+        const { core, depth } = this.state;
         switch (stepIndex) {
             case 0:
                 return (
@@ -568,6 +617,89 @@ class Main extends React.Component {
                                     </div>
                                 )}
                         </div>
+                    </div>
+                );
+            case 3: 
+                return(
+                    <div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                                Platforms Worked
+                            </Typography>
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
+                            <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "5vh" }}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                    Operating Skills
+                                </Typography>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                    Programming Skills
+                                </Typography>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                    Software Skills
+                                </Typography>
+                            </div>
+                            <div style={{display: "table", marginTop: "5vh" }}>
+                                <div style={{display: 'flex'}}>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Windows"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Mac"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Linux"/>
+                                </div>
+                                <div style={{ display: 'flex', marginTop: "1vh"}}>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Java"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="C/C++"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Python"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Other"/>
+                                </div>
+                                <div style={{ display: 'flex', marginTop: "1vh"}}>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="App"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Web"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Scripting"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Other"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "30px", marginRight: "10px" }}>
+                                Courses Undertaken
+                            </Typography>
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
+                            <div style={{ width: "5vw", display: "table", marginLeft: "25vw", marginTop: "5vh" }}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                    Core
+                                </Typography>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                    Depth
+                                </Typography>
+                            </div>
+                            <div style={{display: "table"}}>
+                                <div style={{display: 'flex', marginTop: "5vh"}}>
+                                    <ul className="input-tag__tags">
+                                        {core.map((tag, i) => (
+                                            <li key={tag}>
+                                                {tag}
+                                                <button type="button" onClick={() => { this.removeCore(i); }}>+</button>
+                                            </li>
+                                        ))}
+                                        <li className="input-tag__tags__input"><input type="text" onKeyDown={this.addCore} ref={c => { this.tagInput1 = c; }} /></li>
+                                    </ul>
+                                </div>
+                                <div style={{display: 'flex', marginTop: "2vh"}}>
+                                    <ul className="input-tag__tags">
+                                        {depth.map((tag, i) => (
+                                            <li key={tag}>
+                                                {tag}
+                                                <button type="button" onClick={() => { this.removeDepth(i); }}>+</button>
+                                            </li>
+                                        ))}
+                                        <li className="input-tag__tags__input"><input type="text" onKeyDown={this.addDepth} ref={c => { this.tagInput2 = c; }} /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
                     </div>
                 );
             default:
