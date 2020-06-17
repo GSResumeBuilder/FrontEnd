@@ -97,6 +97,8 @@ class Main extends React.Component {
             workex: [],
             core: [],
             depth: [],
+            pos: [],
+            eca: []
         }
     }
 
@@ -189,6 +191,24 @@ class Main extends React.Component {
             workex: [...this.state.workex, item],
         });
     };
+    handleAddPos = () => {
+        const item = {
+            name: "",
+            mobile: ""
+        };
+        this.setState({
+            pos: [...this.state.pos, item],
+        });
+    };
+    handleAddEca = () => {
+        const item = {
+            name: "",
+            mobile: ""
+        };
+        this.setState({
+            eca: [...this.state.eca, item],
+        });
+    };
     handleRemoveRow = () => {
         this.setState({
             rows: this.state.rows.slice(0, -1)
@@ -202,6 +222,16 @@ class Main extends React.Component {
     handleRemoveWork = () => {
         this.setState({
             workex: this.state.workex.slice(0, -1)
+        });
+    };
+    handleRemovePos = () => {
+        this.setState({
+            pos: this.state.pos.slice(0, -1)
+        });
+    };
+    handleRemoveEca = () => {
+        this.setState({
+            eca: this.state.eca.slice(0, -1)
         });
     };
     getStepContent = (stepIndex) => {
@@ -218,22 +248,22 @@ class Main extends React.Component {
                         <div style={{ width: "30px", display: "table" }}>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
                                 Name
-                </Typography>
+                            </Typography>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "60px", marginRight: "10px" }}>
                                 D.O.B
-                </Typography>
+                            </Typography>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "50px", marginRight: "10px" }}>
                                 Gender
-                </Typography>
+                            </Typography>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "50px", marginRight: "10px" }}>
                                 College
-                </Typography>
+                            </Typography>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "60px", marginRight: "10px" }}>
                                 Email
-                </Typography>
+                            </Typography>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "60px", marginRight: "10px" }}>
                                 Phone
-                </Typography>
+                            </Typography>
                         </div>
                         <div style={{ marginLeft: "-400px" }}>
                             <div style={{ flexDirection: "row", display: "inline-flex" }}>
@@ -497,9 +527,9 @@ class Main extends React.Component {
             case 2:
                 return (
                     <div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
                             Projects
-                    </Typography>
+                        </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
                             <TextField id="outlined-basic" label="Title" variant="outlined" style={{ width: '20vw' }} InputProps={{
                                 classes: {
@@ -557,7 +587,7 @@ class Main extends React.Component {
                                     </div>
                                 )}
                         </div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
                             Work Experience
                     </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
@@ -700,6 +730,129 @@ class Main extends React.Component {
                         </div>
                     </div>
                 );
+            case 4:
+                return(
+                    <div>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                            Position of responsiblities
+                        </Typography>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField id="outlined-basic" label="Position" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                            <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <table>
+                                <tbody>
+                                    {this.state.pos.map((item, idx) => (
+                                        <tr id="addr0" key={idx}>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField id="outlined-basic" label="Position" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
+                            <Typography onClick={this.handleAddPos} style={{ color: "blue" }}>+ Add More</Typography>
+                            {this.state.pos.length > 0 ? (
+                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemovePos} />
+                            ) : (
+                                    <div>
+                                    </div>
+                                )}
+                        </div>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                            Extracurricular activities
+                        </Typography>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField id="outlined-basic" label="Event" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                            <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                classes: {
+                                    notchedOutline: classes.notchedOutline
+                                }
+                            }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                            <table>
+                                <tbody>
+                                    {this.state.eca.map((item, idx) => (
+                                        <tr id="addr0" key={idx}>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField id="outlined-basic" label="Event" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                    classes: {
+                                                        notchedOutline: classes.notchedOutline
+                                                    }
+                                                }} />
+                                            </div>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
+                            <Typography onClick={this.handleAddEca} style={{ color: "blue" }}>+ Add More</Typography>
+                            {this.state.eca.length > 0 ? (
+                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveEca} />
+                            ) : (
+                                    <div>
+                                    </div>
+                                )}
+                        </div>
                     </div>
                 );
             default:
