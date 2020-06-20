@@ -5,7 +5,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import { Icon, InlineIcon } from '@iconify/react';
 import personCircle from '@iconify/icons-bi/person-circle';
-import archiveIcon from '@iconify/icons-bi/archive';
+import deleteOutlined from '@iconify/icons-ant-design/delete-outlined';
 import Typography from '@material-ui/core/Typography';
 import './stylesheets/home.css';
 import TextField from '@material-ui/core/TextField';
@@ -506,10 +506,10 @@ class Main extends React.Component {
                                 ))}
                             </tbody>
                         </table>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
-                            <Typography onClick={this.handleAddRow} style={{ color: "blue" }}>+ Add More</Typography>
+                        <div style={{ display: 'flex', marginLeft: "65vw", marginTop: '2vh' }}>
+                        <Icon icon={outlineLibraryAdd} style={{ fontSize: "28px", marginLeft: "2vw", marginRight: "1vw" }} onClick={this.handleAddRow} />
                             {this.state.rows.length > 0 ? (
-                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveRow} />
+                                <Icon icon={deleteOutlined} style={{ fontSize: "28px"}} onClick={this.handleRemoveRow} />
                             ) : (
                                     <div>
                                     </div>
@@ -571,10 +571,10 @@ class Main extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
-                            <Typography onClick={this.handleAddProject} style={{ color: "blue" }}>+ Add More</Typography>
+                        <div style={{ display: 'flex', marginLeft: "65vw", marginTop: '2vh' }}>
+                        <Icon icon={outlineLibraryAdd} style={{ fontSize: "28px", marginLeft: "1vw", marginRight: "1vw" }} onClick={this.handleAddProject} />
                             {this.state.projects.length > 0 ? (
-                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveProject} />
+                                <Icon icon={deleteOutlined} style={{ fontSize: "28px"}} onClick={this.handleRemoveProject} />
                             ) : (
                                     <div>
                                     </div>
@@ -631,10 +631,10 @@ class Main extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
-                            <Typography onClick={this.handleAddWork} style={{ color: "blue" }}>+ Add More</Typography>
+                        <div style={{ display: 'flex', marginLeft: "65vw", marginTop: '2vh' }}>
+                        <Icon icon={outlineLibraryAdd} style={{ fontSize: "28px", marginLeft: "1vw", marginRight: "1vw" }} onClick={this.handleAddWork} />
                             {this.state.workex.length > 0 ? (
-                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveWork} />
+                                <Icon icon={deleteOutlined} style={{ fontSize: "28px"}} onClick={this.handleRemoveWork} />
                             ) : (
                                     <div>
                                     </div>
@@ -777,10 +777,10 @@ class Main extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
-                            <Typography onClick={this.handleAddPos} style={{ color: "blue" }}>+ Add More</Typography>
+                        <div style={{ display: 'flex', marginLeft: "65vw", marginTop: '2vh' }}>
+                        <Icon icon={outlineLibraryAdd} style={{ fontSize: "28px", marginLeft: "1vw", marginRight: "1vw" }} onClick={this.handleAddPos} />
                             {this.state.pos.length > 0 ? (
-                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemovePos} />
+                                <Icon icon={deleteOutlined} style={{ fontSize: "28px"}} onClick={this.handleRemovePos} />
                             ) : (
                                     <div>
                                     </div>
@@ -837,10 +837,10 @@ class Main extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '40vw', marginTop: '2vh' }}>
-                            <Typography onClick={this.handleAddEca} style={{ color: "blue" }}>+ Add More</Typography>
+                        <div style={{ display: 'flex', marginLeft: "65vw", marginTop: '2vh' }}>
+                        <Icon icon={outlineLibraryAdd} style={{ fontSize: "28px", marginLeft: "1vw", marginRight: "1vw" }} onClick={this.handleAddEca} />
                             {this.state.eca.length > 0 ? (
-                                <Icon icon={archiveIcon} style={{ fontSize: "28px", marginLeft: "1vw" }} onClick={this.handleRemoveEca} />
+                                <Icon icon={deleteOutlined} style={{ fontSize: "28px"}} onClick={this.handleRemoveEca} />
                             ) : (
                                     <div>
                                     </div>
