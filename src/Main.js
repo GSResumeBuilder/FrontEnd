@@ -22,6 +22,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import { Link, Router } from 'react-router-dom'
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import outlineLibraryAdd from '@iconify/icons-ic/outline-library-add';
 
 const resblue = "#256DDA80";
 const kindagrey = "#BEBEBE";
@@ -29,6 +30,18 @@ const kindagrey = "#BEBEBE";
 const useStyles = (theme) => ({
     root: {
         width: '100%',
+        "& $notchedOutline": {
+            borderWidth: "2px",
+            borderColor: resblue
+        },
+        "&:hover $notchedOutline": {
+            borderWidth: "2px",
+            borderColor: resblue
+        },
+        "&$focused $notchedOutline": {
+            borderWidth: "2px",
+            borderColor: resblue
+        },
     },
     backButton: {
         marginRight: theme.spacing(1),
@@ -46,29 +59,9 @@ const useStyles = (theme) => ({
             color: resblue
         },
     },
-    notchedOutline: {
-        borderWidth: "2px",
-        borderColor: "#256DDA80 !important"
-    },
-    activeIcon: {},
-    completedIcon: {}
-});
 
-const useOutlinedInputStyles = theme => ({
-    root: {
-        "& $notchedOutline": {
-            borderWidth: "2px",
-            borderColor: resblue
-        },
-        "&:hover $notchedOutline": {
-            borderWidth: "2px",
-            borderColor: resblue
-        },
-        "&$focused $notchedOutline": {
-            borderWidth: "2px",
-            borderColor: resblue
-        }
-    },
+    activeIcon: {},
+    completedIcon: {},
     focused: {},
     notchedOutline: {}
 });
@@ -235,7 +228,7 @@ class Main extends React.Component {
         });
     };
     getStepContent = (stepIndex) => {
-        const { outlinedInputClasses } = this.props;
+        const { useOutlinedInputStyles } = this.props;
         const { classes } = this.props;
         const { core, depth } = this.state;
         switch (stepIndex) {
@@ -307,7 +300,7 @@ class Main extends React.Component {
                                         input={
                                             <OutlinedInput
                                                 label="Branch"
-                                                classes={outlinedInputClasses}
+                                                classes={classes}
                                             />
                                         }
                                     >
@@ -329,7 +322,7 @@ class Main extends React.Component {
                                             <OutlinedInput
                                                 label="Year"
                                                 style={{ width: "80px" }}
-                                                classes={outlinedInputClasses}
+                                                classes={classes}
                                             />
                                         }
                                     >
@@ -372,7 +365,7 @@ class Main extends React.Component {
                                     input={
                                         <OutlinedInput
                                             label="Year"
-                                            classes={outlinedInputClasses}
+                                            classes={classes}
                                         />
                                     }
                                 >
@@ -462,7 +455,7 @@ class Main extends React.Component {
                                     input={
                                         <OutlinedInput
                                             label="Month"
-                                            classes={outlinedInputClasses}
+                                            classes={classes}
                                         />
                                     }
                                 >
@@ -494,7 +487,7 @@ class Main extends React.Component {
                                                     input={
                                                         <OutlinedInput
                                                             label="Month"
-                                                            classes={outlinedInputClasses}
+                                                            classes={classes}
                                                         />
                                                     }
                                                 >
@@ -907,4 +900,4 @@ class Main extends React.Component {
     }
 }
 
-export default withStyles(useStyles, useOutlinedInputStyles, { withTheme: true })(Main);
+export default withStyles(useStyles, { withTheme: true })(Main);
