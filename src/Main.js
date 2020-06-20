@@ -166,6 +166,10 @@ class Main extends React.Component {
             activeStep: 0,
         });
     };
+
+    onSubmit = () => {
+        console.log("submitted");
+    }
     handleChange = idx => e => {
         const { name, value } = e.target;
         const rows = [...this.state.rows];
@@ -910,6 +914,7 @@ class Main extends React.Component {
                 <div>
                     {activeStep === steps.length ? (
                         <div>
+                            {this.getStepContent(activeStep-1)}
                         </div>
                     ) : (
                             <div>
@@ -920,7 +925,7 @@ class Main extends React.Component {
                 <div style={{ position: "fixed", bottom: "5vh", right: "2vw" }}>
                     {activeStep === steps.length ? (
                         <div>
-                            <Button onClick={this.handleReset}>Submit</Button>
+                            <Button onClick={this.onSubmit}>Submit</Button>
                         </div>
                     ) : (
                             <div>
