@@ -782,7 +782,7 @@ class Main extends React.Component {
                             }} />
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                            <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                            <TextField multiline rows={4} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
@@ -842,7 +842,7 @@ class Main extends React.Component {
                             }} />
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                            <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                            <TextField multiline rows={4} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
