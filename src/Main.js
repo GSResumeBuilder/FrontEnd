@@ -91,7 +91,9 @@ class Main extends React.Component {
             core: [],
             depth: [],
             pos: [],
-            eca: []
+            eca: [], 
+            psOther: false,
+            psOtl: []
         }
     }
 
@@ -128,6 +130,23 @@ class Main extends React.Component {
             this.setState({ depth: [...this.state.depth, val]});
             this.tagInput2.value = null;
         }
+    }
+
+    addPs = (e) => {
+        const val = e.target.value;
+        if (e.key === 'Enter' && val) {
+            if (this.state.psOtl.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+                return;
+            }
+            this.setState({ psOtl: [...this.state.psOtl, val]});
+            this.tagInput3.value = null;
+        }
+    }
+
+    removePs = (i) => {
+        const newTags = [ ...this.state.psOtl ];
+        newTags.splice(i, 1);
+        this.setState({ psOtl: newTags });
     }
 
     handleNext = () => {
@@ -227,6 +246,12 @@ class Main extends React.Component {
             eca: this.state.eca.slice(0, -1)
         });
     };
+    handlepsOt = () => {
+        console.log(this.state.psOther);
+        this.setState({
+            psOther: !this.state.psOther
+        })
+    }
     getStepContent = (stepIndex) => {
         const { useOutlinedInputStyles } = this.props;
         const { classes } = this.props;
@@ -672,7 +697,22 @@ class Main extends React.Component {
                                     <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Java"/>
                                     <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="C/C++"/>
                                     <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Python"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Other"/>
+                                    <FormControlLabel control={<GreenCheckbox name="checkedG" value={this.state.psOther} onClick={this.handlepsOt}/>} label="Other"/>
+                                    {this.state.psOther ? (
+                                        <div style={{display: 'flex'}}>
+                                            <ul className="input-tag__tags">
+                                                {this.state.psOtl.map((tag, i) => (
+                                                    <li key={tag}>
+                                                        {tag}
+                                                        <button type="button" onClick={() => { this.removePs(i); }}>+</button>
+                                                    </li>
+                                                ))}
+                                                <li className="input-tag__tags__input"><input type="text" onKeyDown={this.addPs} ref={c => { this.tagInput3 = c; }} /></li>
+                                            </ul>
+                                        </div>
+                                    ) : (
+                                        <div></div>
+                                    )}
                                 </div>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="App"/>
