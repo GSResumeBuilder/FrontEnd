@@ -93,7 +93,17 @@ class Main extends React.Component {
             pos: [],
             eca: [], 
             psOther: false,
-            psOtl: []
+            psOtl: [],
+            fname: "", 
+            lname: "", 
+            dob: "" ,
+            isMale: false,
+            isFemale: false,
+            branch: "", 
+            enrollment: "", 
+            year: "",
+            email: "",
+            phone: ""
         }
     }
 
@@ -256,6 +266,70 @@ class Main extends React.Component {
             psOther: !this.state.psOther
         })
     }
+
+    onFNameChange = (e) => {
+        this.setState({
+            fname: e.target.value
+        })
+    }
+
+    onLNameChange = (e) => {
+        this.setState({
+            lname: e.target.value
+        })
+    }
+
+    onDobChange = (e) => {
+        console.log(e.target.value);
+        this.setState({
+            dob: e.target.value
+        })
+    }
+
+    setMale = () => {
+        this.setState({
+            isMale: true,
+            isFemale: false
+        })
+    }
+
+    setFemale = () => {
+        this.setState({
+            isFemale: true,
+            isMale: false
+        })
+    }
+
+    setBranch = (e) => {
+        this.setState({
+            branch: e.target.value
+        })
+    }
+
+    onEnrollmentChange = (e) => {
+        this.setState({
+            enrollment: e.target.value
+        })
+    }
+
+    setYear = (e) => {
+        this.setState({
+            year: e.target.value
+        })
+    }
+
+    setEmail = (e) => {
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    setPhone = (e) => {
+        this.setState({
+            phone: e.target.value
+        })
+    }
+
     getStepContent = (stepIndex) => {
         const { useOutlinedInputStyles } = this.props;
         const { classes } = this.props;
@@ -289,12 +363,12 @@ class Main extends React.Component {
                         </div>
                         <div style={{ marginLeft: "-400px" }}>
                             <div style={{ flexDirection: "row", display: "inline-flex" }}>
-                                <TextField id="outlined-basic" label="First" variant="outlined" style={{ marginRight: "20px" }} InputProps={{
+                                <TextField id="outlined-basic" label="First" variant="outlined" value={this.state.fname} onChange={this.onFNameChange} style={{ marginRight: "20px" }} InputProps={{
                                     classes: {
                                         notchedOutline: classes.notchedOutline
                                     }
                                 }} />
-                                <TextField id="outlined-basic" label="Last" variant="outlined" style={{ marginRight: "20px" }} InputProps={{
+                                <TextField id="outlined-basic" label="Last" variant="outlined" value={this.state.lname} onChange={this.onLNameChange} style={{ marginRight: "20px" }} InputProps={{
                                     classes: {
                                         notchedOutline: classes.notchedOutline
                                     }
@@ -302,7 +376,7 @@ class Main extends React.Component {
                             </div>
                             <br />
                             <div style={{ flexDirection: "row", display: "inline-flex", marginTop: "30px" }}>
-                                <TextField id="outlined-basic" type="date" variant="outlined" style={{ marginRight: "20px" }} InputProps={{
+                                <TextField id="outlined-basic" type="date" variant="outlined" value={this.state.dob} onChange={this.onDobChange} style={{ marginRight: "20px" }} InputProps={{
                                     classes: {
                                         notchedOutline: classes.notchedOutline
                                     }
@@ -312,11 +386,11 @@ class Main extends React.Component {
                             <div style={{ flexDirection: "row", display: "inline-flex", marginTop: "30px" }}>
 
                                 <FormControlLabel
-                                    control={<Checkbox icon={<Icon icon={manOutline} style={{ fontSize: '32px' }} />} checkedIcon={<Icon icon={manOutline} style={{ fontSize: '32px' }} color={resblue} />} name="checkedH" />}
+                                    control={<Checkbox icon={<Icon icon={manOutline} style={{ fontSize: '32px' }} />} checked={this.state.isMale} onChange={this.setMale} checkedIcon={<Icon icon={manOutline} style={{ fontSize: '32px' }} color={resblue} />} name="checkedH" />}
                                     label="Male"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox icon={<Icon icon={womanOutline} style={{ fontSize: '32px' }} />} checkedIcon={<Icon icon={womanOutline} style={{ fontSize: '32px' }} color={resblue} />} name="checkedH" />}
+                                    control={<Checkbox icon={<Icon icon={womanOutline} style={{ fontSize: '32px' }} />} checked={this.state.isFemale} onChange={this.setFemale} checkedIcon={<Icon icon={womanOutline} style={{ fontSize: '32px' }} color={resblue} />} name="checkedH" />}
                                     label="Female"
                                 />
                             </div>
@@ -332,13 +406,15 @@ class Main extends React.Component {
                                                 classes={classes}
                                             />
                                         }
+                                        value={this.state.branch}
+                                        onChange={this.setBranch}
                                     >
                                         <MenuItem value={10}>Computer Science</MenuItem>
                                         <MenuItem value={20}>Civil Engineering</MenuItem>
                                         <MenuItem value={30}>Biomedical Engineering</MenuItem>
                                     </Select>
                                 </FormControl>
-                                <TextField id="outlined-basic" label="Enrollment no." variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                                <TextField id="outlined-basic" label="Enrollment no." variant="outlined" value={this.state.enrollment} onChange={this.onEnrollmentChange} style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                     classes: {
                                         notchedOutline: classes.notchedOutline
                                     }
@@ -354,6 +430,8 @@ class Main extends React.Component {
                                                 classes={classes}
                                             />
                                         }
+                                        value={this.state.year}
+                                        onChange={this.setYear}
                                     >
                                         <MenuItem value={10}>1</MenuItem>
                                         <MenuItem value={20}>2</MenuItem>
@@ -363,7 +441,7 @@ class Main extends React.Component {
                             </div>
                             <br />
                             <div style={{ flexDirection: "row", display: "inline-flex", marginTop: "30px" }}>
-                                <TextField id="outlined-basic" variant="outlined" style={{ marginRight: "20px" }} InputProps={{
+                                <TextField id="outlined-basic" variant="outlined" value={this.state.email} onChange={this.setEmail} style={{ marginRight: "20px" }} InputProps={{
                                     classes: {
                                         notchedOutline: classes.notchedOutline
                                     }
@@ -371,7 +449,7 @@ class Main extends React.Component {
                             </div>
                             <br />
                             <div style={{ flexDirection: "row", display: "inline-flex", marginTop: "30px" }}>
-                                <TextField id="outlined-basic" variant="outlined" style={{ marginRight: "20px" }} InputProps={{
+                                <TextField id="outlined-basic" variant="outlined"  value={this.state.phone} onChange={this.setPhone} style={{ marginRight: "20px" }} InputProps={{
                                     classes: {
                                         notchedOutline: classes.notchedOutline
                                     }
