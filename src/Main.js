@@ -24,6 +24,7 @@ import { Link, Router } from 'react-router-dom'
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import outlineLibraryAdd from '@iconify/icons-ic/outline-library-add';
 import closeCircleOutlined from '@iconify/icons-ant-design/close-circle-outlined';
+import axios from 'axios';
 
 const resblue = "#256DDA80";
 const kindagrey = "#BEBEBE";
@@ -224,7 +225,10 @@ class Main extends React.Component {
             positions: this.state.pos,
             extracurricular: this.state.eca 
         }
-        console.log(resume);
+        axios.post('https://application-generator.el.r.appspot.com/application_generator', resume)
+        .then(function (response) {
+            console.log(response);
+        });
     }
     handleChange = idx => e => {
         const { name, value } = e.target;
