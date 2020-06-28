@@ -192,7 +192,7 @@ class Main extends React.Component {
     };
 
     onSubmit = () => {
-        console.log("submitted");
+        
     }
     handleChange = idx => e => {
         const { name, value } = e.target;
@@ -1166,7 +1166,7 @@ class Main extends React.Component {
                         )}
                 </div>
                 <div style={{ position: "fixed", bottom: "5vh", right: "2vw" }}>
-                    {activeStep === steps.length ? (
+                    {activeStep === steps.length-1 ? (
                         <div>
                             <Button onClick={this.onSubmit}>Submit</Button>
                         </div>
@@ -1175,9 +1175,9 @@ class Main extends React.Component {
                                 <div>
                                     <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
                                         Back
-                      </Button>
+                                    </Button>
                                     <Button variant="contained" color="primary" onClick={this.handleNext}>
-                                        {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                                        Next
                                     </Button>
                                 </div>
                             </div>
