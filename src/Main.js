@@ -661,7 +661,7 @@ class Main extends React.Component {
                                         value={this.state.branch}
                                         onChange={this.setBranch}
                                     >
-                                        <MenuItem value={10}>Computer Science</MenuItem>
+                                        <MenuItem value={"computer science"}>Computer Science</MenuItem>
                                         <MenuItem value={20}>Civil Engineering</MenuItem>
                                         <MenuItem value={30}>Biomedical Engineering</MenuItem>
                                     </Select>
@@ -972,7 +972,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addOs} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addOs} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -992,7 +992,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addPs} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addPs} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -1012,7 +1012,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addSoftskill} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addSoftskill} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -1049,7 +1049,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addCore} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addCore} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -1069,7 +1069,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addDepth} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addDepth} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },

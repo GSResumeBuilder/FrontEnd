@@ -1,3 +1,4 @@
+[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](https://github.com/devabhixda/ResumeBuilder/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/devabhixda/ResumeBuilder/pulls)
 [![Made with React](https://img.shields.io/badge/Made_with-React-blue.svg)](https://reactjs.org/)
 [![Material UI](https://img.shields.io/badge/Material-UI-blue.svg)](https://material-ui.com/)
