@@ -23,6 +23,7 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import { Link, Router } from 'react-router-dom'
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import outlineLibraryAdd from '@iconify/icons-ic/outline-library-add';
+import closeCircleOutlined from '@iconify/icons-ant-design/close-circle-outlined';
 
 const resblue = "#256DDA80";
 const kindagrey = "#BEBEBE";
@@ -427,6 +428,11 @@ class Main extends React.Component {
         })
     };
 
+    handleRemoveSpecificRow = (idx) => () => {
+        const rows = [...this.state.rows]
+        rows.splice(idx, 1)
+        this.setState({ rows })
+    }
 
     getStepContent = (stepIndex) => {
         const { classes } = this.props;
@@ -683,6 +689,7 @@ class Main extends React.Component {
                                                     notchedOutline: classes.notchedOutline
                                                 }
                                             }} />
+                                            <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "32px", marginLeft: "0.5vw"}} onClick={this.handleRemoveSpecificRow(idx)}/>
                                         </div>
                                     </tr>
                                 ))}
