@@ -95,6 +95,8 @@ class Main extends React.Component {
             eca: [], 
             psOther: false,
             psOtl: [],
+            softskills: [],
+            os: [],
             fname: "", 
             lname: "", 
             dob: "" ,
@@ -139,7 +141,7 @@ class Main extends React.Component {
                 return;
             }
             this.setState({ core: [...this.state.core, val]});
-            this.tagInput1.value = null;
+            e.target.value = null;
         }
     }
 
@@ -150,7 +152,7 @@ class Main extends React.Component {
                 return;
             }
             this.setState({ depth: [...this.state.depth, val]});
-            this.tagInput2.value = null;
+            e.target.value = null;
         }
     }
 
@@ -161,7 +163,7 @@ class Main extends React.Component {
                 return;
             }
             this.setState({ psOtl: [...this.state.psOtl, val]});
-            this.tagInput3.value = null;
+            e.target.value = null;
         }
     }
 
@@ -471,6 +473,40 @@ class Main extends React.Component {
             ...this.state.workex[idx].duration = e.target.value
         })
     };
+
+    addSoftskill = (e) => {
+        const val = e.target.value;
+        if (e.key === 'Enter' && val) {
+            if (this.state.softskills.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+                return;
+            }
+            this.setState({ softskills: [...this.state.softskills, val]});
+            e.target.value = null;
+        }
+    }
+
+    removeSoftskill = (i) => {
+        const newTags = [ ...this.state.softskills ];
+        newTags.splice(i, 1);
+        this.setState({ softskills: newTags });
+    }
+
+    addOs = (e) => {
+        const val = e.target.value;
+        if (e.key === 'Enter' && val) {
+            if (this.state.os.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+                return;
+            }
+            this.setState({ os: [...this.state.os, val]});
+            e.target.value = null;
+        }
+    }
+
+    removeOs = (i) => {
+        const newTags = [ ...this.state.os ];
+        newTags.splice(i, 1);
+        this.setState({ os: newTags });
+    }
 
     getStepContent = (stepIndex) => {
         const { classes } = this.props;
@@ -790,7 +826,7 @@ class Main extends React.Component {
                         </div>
                         <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
                             Work Experience
-                    </Typography>
+                        </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
                             <table>
                                 <tbody>
@@ -844,45 +880,73 @@ class Main extends React.Component {
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
                                     Operating Skills
                                 </Typography>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
                                     Programming Skills
                                 </Typography>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
                                     Software Skills
                                 </Typography>
                             </div>
                             <div style={{display: "table", marginTop: "5vh" }}>
-                                <div style={{display: 'flex'}}>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Windows"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Mac"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Linux"/>
+                                <div style={{ display: 'flex', marginTop: "1vh"}}>
+                                    <ul className="input-tag__tags">
+                                        {this.state.os.map((tag, i) => (
+                                            <li key={tag}>
+                                                {tag}
+                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeOs(i); }}/>
+                                            </li>
+                                        ))}
+                                        <li className="input-tag__tags__input">
+                                            <TextField onKeyDown={this.addOs} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                                classes: {
+                                                    notchedOutline: classes.notchedOutline
+                                                },
+                                                style: {
+                                                    height: '40px'
+                                                }
+                                            }} />
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Java"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="C/C++"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Python"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" value={this.state.psOther} onClick={this.handlepsOt}/>} label="Other"/>
-                                    {this.state.psOther ? (
-                                        <div style={{display: 'flex'}}>
-                                            <ul className="input-tag__tags">
-                                                {this.state.psOtl.map((tag, i) => (
-                                                    <li key={tag}>
-                                                        {tag}
-                                                        <button type="button" onClick={() => { this.removePs(i); }}>+</button>
-                                                    </li>
-                                                ))}
-                                                <li className="input-tag__tags__input"><input type="text" onKeyDown={this.addPs} ref={c => { this.tagInput3 = c; }} /></li>
-                                            </ul>
-                                        </div>
-                                    ) : (
-                                        <div></div>
-                                    )}
+                                    <ul className="input-tag__tags">
+                                        {this.state.psOtl.map((tag, i) => (
+                                            <li key={tag}>
+                                                {tag}
+                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removePs(i); }}/>
+                                            </li>
+                                        ))}
+                                        <li className="input-tag__tags__input">
+                                            <TextField onKeyDown={this.addPs} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                                classes: {
+                                                    notchedOutline: classes.notchedOutline
+                                                },
+                                                style: {
+                                                    height: '40px'
+                                                }
+                                            }} />
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="App"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Web"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Scripting"/>
-                                    <FormControlLabel control={<GreenCheckbox name="checkedG" />} label="Other"/>
+                                    <ul className="input-tag__tags">
+                                        {this.state.softskills.map((tag, i) => (
+                                            <li key={tag}>
+                                                {tag}
+                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeSoftskill(i); }}/>
+                                            </li>
+                                        ))}
+                                        <li className="input-tag__tags__input">
+                                            <TextField onKeyDown={this.addSoftskill} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                                classes: {
+                                                    notchedOutline: classes.notchedOutline
+                                                },
+                                                style: {
+                                                    height: '40px'
+                                                }
+                                            }} />
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -900,27 +964,45 @@ class Main extends React.Component {
                                     Depth
                                 </Typography>
                             </div>
-                            <div style={{display: "table"}}>
-                                <div style={{display: 'flex', marginTop: "5vh"}}>
+                            <div style={{display: "table", marginTop: "4vh"}}>
+                                <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
                                         {core.map((tag, i) => (
                                             <li key={tag}>
                                                 {tag}
-                                                <button type="button" onClick={() => { this.removeCore(i); }}>+</button>
+                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeCore(i); }}/>
                                             </li>
                                         ))}
-                                        <li className="input-tag__tags__input"><input type="text" onKeyDown={this.addCore} ref={c => { this.tagInput1 = c; }} /></li>
+                                        <li className="input-tag__tags__input">
+                                            <TextField onKeyDown={this.addCore} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                                classes: {
+                                                    notchedOutline: classes.notchedOutline
+                                                },
+                                                style: {
+                                                    height: '40px'
+                                                }
+                                            }} />
+                                        </li>
                                     </ul>
                                 </div>
-                                <div style={{display: 'flex', marginTop: "2vh"}}>
+                                <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
                                         {depth.map((tag, i) => (
                                             <li key={tag}>
                                                 {tag}
-                                                <button type="button" onClick={() => { this.removeDepth(i); }}>+</button>
+                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeDepth(i); }}/>
                                             </li>
                                         ))}
-                                        <li className="input-tag__tags__input"><input type="text" onKeyDown={this.addDepth} ref={c => { this.tagInput2 = c; }} /></li>
+                                        <li className="input-tag__tags__input">
+                                            <TextField onKeyDown={this.addDepth} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                                classes: {
+                                                    notchedOutline: classes.notchedOutline
+                                                },
+                                                style: {
+                                                    height: '40px'
+                                                }
+                                            }} />
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
