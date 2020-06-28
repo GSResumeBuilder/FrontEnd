@@ -103,7 +103,18 @@ class Main extends React.Component {
             enrollment: "", 
             year: "",
             email: "",
-            phone: ""
+            phone: "",
+            gyear: "",
+            gcgpa: "",
+            hs: "",
+            hsyear: "",
+            hsboard: "",
+            hsinsti: "",
+            hscgpa:"",
+            ssyear: "",
+            ssboard: "",
+            ssinsti: "",
+            sscgpa:""
         }
     }
 
@@ -192,12 +203,14 @@ class Main extends React.Component {
     };
     handleAddRow = () => {
         const item = {
-            name: "",
-            mobile: ""
+            description: "",
+            month: "",
+            year: ""
         };
         this.setState({
             rows: [...this.state.rows, item],
         });
+        console.log(this.state.rows);
     };
     handleAddProject = () => {
         const item = {
@@ -330,8 +343,92 @@ class Main extends React.Component {
         })
     }
 
+    setGyear = (e) => {
+        this.setState({
+            gyear: e.target.value
+        })
+    }
+
+    setGcgpa = (e) => {
+        this.setState({
+            gcgpa: e.target.value
+        })
+    }
+
+    setHs = (e) => {
+        this.setState({
+            hs: e.target.value
+        })
+    }
+
+    setHsy = (e) => {
+        this.setState({
+            hsyear: e.target.value
+        })
+    }
+
+    setHsb = (e) => {
+        this.setState({
+            hsboard: e.target.value
+        })
+    }
+
+    setHsi = (e) => {
+        this.setState({
+            hsinsti: e.target.value
+        })
+    }
+
+    setHscg = (e) => {
+        this.setState({
+            hscgpa: e.target.value
+        })
+    }
+
+    setSsy = (e) => {
+        this.setState({
+            ssyear: e.target.value
+        })
+    }
+    
+    setSsb = (e) => {
+        this.setState({
+            ssboard: e.target.value
+        })
+    }
+    
+    setSsi = (e) => {
+        this.setState({
+            ssinsti: e.target.value
+        })
+    }
+    
+    setSscg = (e) => {
+        this.setState({
+            sscgpa: e.target.value
+        })
+    }
+
+    setSdesc = idx => e => {
+        this.setState({
+            ...this.state.rows[idx].description = e.target.value
+        })
+    };
+
+    setSmonth = idx => e => {
+        this.setState({
+            ...this.state.rows[idx].month = e.target.value
+        })
+    };
+
+    setSyear = idx => e => {
+        this.setState({
+            ...this.state.rows[idx].year = e.target.value
+        })
+    };
+
+
     getStepContent = (stepIndex) => {
-        const { useOutlinedInputStyles } = this.props;
         const { classes } = this.props;
         const { core, depth } = this.state;
         switch (stepIndex) {
@@ -464,7 +561,7 @@ class Main extends React.Component {
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '25vw', marginRight: '25vw' }}>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
                                 Graduation
-                </Typography>
+                            </Typography>
                             <FormControl variant="outlined" className={classes.formControl}>
                                 <InputLabel>Year</InputLabel>
                                 <Select
@@ -475,13 +572,15 @@ class Main extends React.Component {
                                             classes={classes}
                                         />
                                     }
+                                    value={this.state.gyear}
+                                    onChange={this.setGyear}
                                 >
                                     <MenuItem value={10}>2021</MenuItem>
                                     <MenuItem value={20}>2022</MenuItem>
                                     <MenuItem value={30}>2023</MenuItem>
                                 </Select>
                             </FormControl>
-                            <TextField id="outlined-basic" label="CGPA" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                            <TextField id="outlined-basic" label="CGPA" value={this.state.gcgpa} onChange={this.setGcgpa} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
@@ -493,27 +592,29 @@ class Main extends React.Component {
                                 <InputLabel>High School</InputLabel>
                                 <Select
                                     style={{ width: "180px" }}
+                                    value={this.state.hs}
+                                    onChange={this.setHs}
                                 >
                                     <MenuItem value={10}>12th</MenuItem>
                                     <MenuItem value={20}>Diploma</MenuItem>
                                 </Select>
                             </FormControl>
-                            <TextField id="outlined-basic" label="Year" variant="outlined" style={{ width: '30%', marginLeft: "100px" }} InputProps={{
+                            <TextField id="outlined-basic" label="Year" value={this.state.hsyear} onChange={this.setHsy} variant="outlined" style={{ width: '30%', marginLeft: "100px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
                             }} />
-                            <TextField id="outlined-basic" label="Board" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                            <TextField id="outlined-basic" label="Board" value={this.state.hsboard} onChange={this.setHsb} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
                             }} />
-                            <TextField id="outlined-basic" label="Institute" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                            <TextField id="outlined-basic" label="Institute" value={this.state.hsinsti} onChange={this.setHsi} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
                             }} />
-                            <TextField id="outlined-basic" label="CGPA" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                            <TextField id="outlined-basic" label="CGPA" value={this.state.hscgpa} onChange={this.setHscg} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
@@ -522,7 +623,7 @@ class Main extends React.Component {
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '10vw', marginRight: '10vw', marginTop: '2vh' }}>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "15px", marginRight: "10px", width: "180px" }}>
                                 10th
-                </Typography>
+                            </Typography>
                             <TextField id="outlined-basic" label="Year" variant="outlined" style={{ width: '30%', marginLeft: "90px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
@@ -554,7 +655,7 @@ class Main extends React.Component {
                                 {this.state.rows.map((item, idx) => (
                                     <tr id="addr0" key={idx}>
                                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '25.8vw', marginRight: '20vw', marginTop: '2vh' }}>
-                                            <TextField id="outlined-basic" label="Description" variant="outlined" style={{ width: '17.7vw', marginLeft: "10px" }} InputProps={{
+                                            <TextField id="outlined-basic" label="Description" value={this.state.rows[idx].description} onChange={this.setSdesc(idx)} variant="outlined" style={{ width: '17.7vw', marginLeft: "10px" }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 }
@@ -569,13 +670,15 @@ class Main extends React.Component {
                                                             classes={classes}
                                                         />
                                                     }
+                                                    value={this.state.rows[idx].month}
+                                                    onChange={this.setSmonth(idx)}
                                                 >
                                                     <MenuItem value={10}>January</MenuItem>
                                                     <MenuItem value={20}>February</MenuItem>
                                                     <MenuItem value={30}>March</MenuItem>
                                                 </Select>
                                             </FormControl>
-                                            <TextField id="outlined-basic" label="Year" variant="outlined" style={{ width: '17.8vw', marginLeft: "10px" }} InputProps={{
+                                            <TextField id="outlined-basic" label="Year" value={this.state.rows[idx].year} onChange={this.setSyear(idx)} variant="outlined" style={{ width: '17.8vw', marginLeft: "10px" }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 }
