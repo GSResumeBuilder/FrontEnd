@@ -85,7 +85,7 @@ class Main extends React.Component {
         super(props);
         this.state = {
             activeStep: 0,
-            rows: [],
+            rows: [{}],
             projects: [],
             workex: [],
             core: [],
@@ -547,35 +547,7 @@ class Main extends React.Component {
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '10vw', marginRight: '10vw', marginTop: '2vh' }}>
                             <Typography style={{ fontFamily: 'Poppins', fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
                                 Scholastic achievements
-                </Typography>
-                        </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '20vw', marginRight: '20vw', marginTop: '2vh' }}>
-                            <TextField id="outlined-basic" label="Description" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
-                            <FormControl variant="outlined" className={classes.formControl} style={{ marginLeft: "10px" }}>
-                                <InputLabel>Month</InputLabel>
-                                <Select
-                                    style={{ width: "150px" }}
-                                    input={
-                                        <OutlinedInput
-                                            label="Month"
-                                            classes={classes}
-                                        />
-                                    }
-                                >
-                                    <MenuItem value={10}>January</MenuItem>
-                                    <MenuItem value={20}>February</MenuItem>
-                                    <MenuItem value={30}>March</MenuItem>
-                                </Select>
-                            </FormControl>
-                            <TextField id="outlined-basic" label="Year" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
+                            </Typography>
                         </div>
                         <table>
                             <tbody>
