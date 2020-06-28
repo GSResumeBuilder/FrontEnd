@@ -91,8 +91,8 @@ class Main extends React.Component {
             workex: [{}],
             core: [],
             depth: [],
-            pos: [],
-            eca: [], 
+            pos: [{}],
+            eca: [{}], 
             psOther: false,
             psOtl: [],
             softskills: [],
@@ -237,8 +237,9 @@ class Main extends React.Component {
     };
     handleAddPos = () => {
         const item = {
-            name: "",
-            mobile: ""
+            position: "",
+            duration: "",
+            description: ""
         };
         this.setState({
             pos: [...this.state.pos, item],
@@ -246,8 +247,9 @@ class Main extends React.Component {
     };
     handleAddEca = () => {
         const item = {
-            name: "",
-            mobile: ""
+            event: "",
+            duration: "",
+            description: ""
         };
         this.setState({
             eca: [...this.state.eca, item],
@@ -508,6 +510,43 @@ class Main extends React.Component {
         this.setState({ os: newTags });
     }
 
+    setPosp = idx => e => {
+        this.setState({
+            ...this.state.pos[idx].position= e.target.value
+        })
+    };
+
+    setPosdur = idx => e => {
+        this.setState({
+            ...this.state.pos[idx].duration = e.target.value
+        })
+    };
+
+    setPosdesc = idx => e => {
+        this.setState({
+            ...this.state.pos[idx].description = e.target.value
+        })
+    };
+
+    setEcae = idx => e => {
+        this.setState({
+            ...this.state.eca[idx].event= e.target.value
+        })
+    };
+
+    setEcadur= idx => e => {
+        this.setState({
+            ...this.state.eca[idx].duration = e.target.value
+        })
+    };
+
+    setEcadesc = idx => e => {
+        this.setState({
+            ...this.state.eca[idx].description = e.target.value
+        })
+    };
+
+
     getStepContent = (stepIndex) => {
         const { classes } = this.props;
         const { core, depth } = this.state;
@@ -704,22 +743,22 @@ class Main extends React.Component {
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "15px", marginRight: "10px", width: "180px" }}>
                                 10th
                             </Typography>
-                            <TextField id="outlined-basic" label="Year" variant="outlined" style={{ width: '30%', marginLeft: "90px" }} InputProps={{
+                            <TextField id="outlined-basic" label="Year" value={this.state.setSyear} onChange={this.setSsy} variant="outlined" style={{ width: '30%', marginLeft: "90px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
                             }} />
-                            <TextField id="outlined-basic" label="Board" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                            <TextField id="outlined-basic" label="Board" value={this.state.ssboard} onChange={this.setSsb} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
                             }} />
-                            <TextField id="outlined-basic" label="Institute" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                            <TextField id="outlined-basic" label="Institute" value={this.state.ssinsti} onChange={this.setSsi} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
                             }} />
-                            <TextField id="outlined-basic" label="CGPA" variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
+                            <TextField id="outlined-basic" label="CGPA" value={this.state.sscgpa} onChange={this.setSscg} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
@@ -1016,43 +1055,24 @@ class Main extends React.Component {
                             Position of responsiblities
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                            <TextField id="outlined-basic" label="Position" variant="outlined" style={{ width: '20vw' }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
-                            <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
-                        </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                            <TextField multiline rows={4} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
-                        </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
                             <table>
                                 <tbody>
                                     {this.state.pos.map((item, idx) => (
                                         <tr id="addr0" key={idx}>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField id="outlined-basic" label="Position" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                                <TextField id="outlined-basic" label="Position" variant="outlined" value={this.state.pos[idx].position} onChange={this.setPosp(idx)} style={{ width: '20vw' }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
-                                                <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.pos[idx].duration} onChange={this.setPosdur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
                                             </div>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.pos[idx].description} onChange={this.setPosdesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
@@ -1076,43 +1096,24 @@ class Main extends React.Component {
                             Extracurricular activities
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                            <TextField id="outlined-basic" label="Event" variant="outlined" style={{ width: '20vw' }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
-                            <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
-                        </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                            <TextField multiline rows={4} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
-                                classes: {
-                                    notchedOutline: classes.notchedOutline
-                                }
-                            }} />
-                        </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
                             <table>
                                 <tbody>
                                     {this.state.eca.map((item, idx) => (
                                         <tr id="addr0" key={idx}>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField id="outlined-basic" label="Event" variant="outlined" style={{ width: '20vw' }} InputProps={{
+                                                <TextField id="outlined-basic" label="Event" variant="outlined" value={this.state.eca[idx].event} onChange={this.setEcae(idx)} style={{ width: '20vw' }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
-                                                <TextField id="outlined-basic" label="Duration" variant="outlined" style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.eca[idx].duration} onChange={this.setEcadur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
                                             </div>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.eca[idx].description} onChange={this.setEcadesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
