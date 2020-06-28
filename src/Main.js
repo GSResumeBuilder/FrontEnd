@@ -192,7 +192,39 @@ class Main extends React.Component {
     };
 
     onSubmit = () => {
-        
+        const resume = {
+            first_name: this.state.fname,
+            last_name: this.state.lname,
+            dob: this.state.dob,
+            gender: this.state.isMale ? "M" : "F",
+            branch: this.state.branch,
+            enrollment_no: this.state.enrollment,
+            year_of_study: this.state.year,
+            email_id: this.state.email,
+            phone_no: this.state.phone,
+            grad_year: this.state.gyear,
+            grad_cgpa: this.state.gcgpa,
+            high_school: this.state.hs,
+            high_school_year: this.state.hsyear,
+            high_school_board: this.state.hsboard,
+            high_school_institute: this.state.hsinsti,
+            high_school_cgpa: this.state.hscgpa,
+            secondary_school_year: this.state.ssyear,
+            secondary_school_board: this.state.ssboard,
+            secondary_school_institute: this.state.ssinsti,
+            secondary_school_cgpa: this.state.sscgpa,
+            scholastic_achievements: this.state.rows,
+            projects: this.state.projects,
+            work_experience: this.state.workex,
+            platforms_os: this.state.os,
+            platforms_ps: this.state.psOtl,
+            platforms_ss: this.state.softskills,
+            courses_core: this.state.core,
+            courses_depth: this.state.depth,
+            positions: this.state.pos,
+            extracurricular: this.state.eca 
+        }
+        console.log(resume);
     }
     handleChange = idx => e => {
         const { name, value } = e.target;
