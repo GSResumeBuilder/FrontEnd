@@ -1204,6 +1204,9 @@ class Main extends React.Component {
                 <div style={{ position: "fixed", bottom: "5vh", right: "2vw" }}>
                     {activeStep === steps.length-1 ? (
                         <div>
+                            <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
+                                Back
+                            </Button>
                             <Button onClick={this.onSubmit}>Submit</Button>
                         </div>
                     ) : (
