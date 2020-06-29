@@ -955,7 +955,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addOs} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addOs} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -975,7 +975,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addPs} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addPs} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -995,7 +995,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addSoftskill} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addSoftskill} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -1032,7 +1032,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addCore} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addCore} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -1052,7 +1052,7 @@ class Main extends React.Component {
                                             </li>
                                         ))}
                                         <li className="input-tag__tags__input">
-                                            <TextField onKeyDown={this.addDepth} id="outlined-basic" variant="outlined" style={{ width: '30vw' }} InputProps={{
+                                            <TextField onKeyDown={this.addDepth} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
@@ -1187,7 +1187,7 @@ class Main extends React.Component {
                 <div style={{ position: "fixed", bottom: "5vh", right: "2vw" }}>
                     {activeStep === steps.length-1 ? (
                         <div>
-                            <Button onClick={this.handleBack} className={classes.backButton}>
+                            <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
                                 Back
                             </Button>
                             <Button onClick={this.onSubmit}>Submit</Button>
