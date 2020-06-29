@@ -93,18 +93,18 @@ class Main extends React.Component {
             core: [],
             depth: [],
             pos: [{}],
-            eca: [{}], 
+            eca: [{}],
             psOther: false,
             psOtl: [],
             softskills: [],
             os: [],
-            fname: "", 
-            lname: "", 
+            fname: "",
+            lname: "",
             dob: "" ,
             isMale: false,
             isFemale: false,
-            branch: "", 
-            enrollment: "", 
+            branch: "",
+            enrollment: "",
             year: "",
             email: "",
             phone: "",
@@ -128,7 +128,7 @@ class Main extends React.Component {
         newTags.splice(i, 1);
         this.setState({ core: newTags });
     }
-    
+
     removeDepth = (i) => {
         const newTags = [ ...this.state.depth ];
         newTags.splice(i, 1);
@@ -223,9 +223,9 @@ class Main extends React.Component {
             courses_core: this.state.core,
             courses_depth: this.state.depth,
             positions: this.state.pos,
-            extracurricular: this.state.eca 
+            extracurricular: this.state.eca
         }
-        axios.post('https://application-generator.el.r.appspot.com/application_generator', resume)
+        axios.post('http://127.0.0.1:5000/', resume)
         .then(function (response) {
             console.log(response);
         });
@@ -243,8 +243,7 @@ class Main extends React.Component {
     handleAddRow = () => {
         const item = {
             description: "",
-            month: "",
-            year: ""
+            duration: ""
         };
         this.setState({
             rows: [...this.state.rows, item],
@@ -433,19 +432,19 @@ class Main extends React.Component {
             ssyear: e.target.value
         })
     }
-    
+
     setSsb = (e) => {
         this.setState({
             ssboard: e.target.value
         })
     }
-    
+
     setSsi = (e) => {
         this.setState({
             ssinsti: e.target.value
         })
     }
-    
+
     setSscg = (e) => {
         this.setState({
             sscgpa: e.target.value
@@ -458,15 +457,9 @@ class Main extends React.Component {
         })
     };
 
-    setSmonth = idx => e => {
-        this.setState({
-            ...this.state.rows[idx].month = e.target.value
-        })
-    };
-
     setSyear = idx => e => {
         this.setState({
-            ...this.state.rows[idx].year = e.target.value
+            ...this.state.rows[idx].duration = e.target.value
         })
     };
 
@@ -661,9 +654,15 @@ class Main extends React.Component {
                                         value={this.state.branch}
                                         onChange={this.setBranch}
                                     >
-                                        <MenuItem value={10}>Computer Science</MenuItem>
-                                        <MenuItem value={20}>Civil Engineering</MenuItem>
-                                        <MenuItem value={30}>Biomedical Engineering</MenuItem>
+                                        <MenuItem value={"Biomedical Engineering"}>Biomedical Engineering</MenuItem>
+                                        <MenuItem value={"Civil Engineering"}>Civil Engineering</MenuItem>
+                                        <MenuItem value={"Computer Science"}>Computer Science</MenuItem>
+                                        <MenuItem value={"Electronics and Telecommunications"}>Electronics and Telecommunications</MenuItem>
+                                        <MenuItem value={"Electrical Engineering"}>Electrical Engineering</MenuItem>
+                                        <MenuItem value={"Electronics and Instrumentations"}>Electronics and Instrumentations</MenuItem>
+                                        <MenuItem value={"Industrial Productions"}>Industrial Productions</MenuItem>
+                                        <MenuItem value={"Information Technology"}>Information Technology</MenuItem>
+                                        <MenuItem value={"Mechanical Engineering"}>Mechanical Engineering</MenuItem>
                                     </Select>
                                 </FormControl>
                                 <TextField id="outlined-basic" label="Enrollment no." variant="outlined" value={this.state.enrollment} onChange={this.onEnrollmentChange} style={{ width: '30%', marginLeft: "10px" }} InputProps={{
@@ -685,9 +684,10 @@ class Main extends React.Component {
                                         value={this.state.year}
                                         onChange={this.setYear}
                                     >
-                                        <MenuItem value={10}>1</MenuItem>
-                                        <MenuItem value={20}>2</MenuItem>
-                                        <MenuItem value={30}>3</MenuItem>
+                                        <MenuItem value={"1st"}>1st</MenuItem>
+                                        <MenuItem value={"2nd"}>2nd</MenuItem>
+                                        <MenuItem value={"3rd"}>3rd</MenuItem>
+                                        <MenuItem value={"4th"}>4th</MenuItem>
                                     </Select>
                                 </FormControl>
                             </div>
@@ -730,9 +730,9 @@ class Main extends React.Component {
                                     value={this.state.gyear}
                                     onChange={this.setGyear}
                                 >
-                                    <MenuItem value={10}>2021</MenuItem>
-                                    <MenuItem value={20}>2022</MenuItem>
-                                    <MenuItem value={30}>2023</MenuItem>
+                                    <MenuItem value={"2021"}>2021</MenuItem>
+                                    <MenuItem value={"2022"}>2022</MenuItem>
+                                    <MenuItem value={"2023"}>2023</MenuItem>
                                 </Select>
                             </FormControl>
                             <TextField id="outlined-basic" label="CGPA" value={this.state.gcgpa} onChange={this.setGcgpa} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
@@ -750,8 +750,8 @@ class Main extends React.Component {
                                     value={this.state.hs}
                                     onChange={this.setHs}
                                 >
-                                    <MenuItem value={10}>12th</MenuItem>
-                                    <MenuItem value={20}>Diploma</MenuItem>
+                                    <MenuItem value={"12th"}>12th</MenuItem>
+                                    <MenuItem value={"Diploma"}>Diploma</MenuItem>
                                 </Select>
                             </FormControl>
                             <TextField id="outlined-basic" label="Year" value={this.state.hsyear} onChange={this.setHsy} variant="outlined" style={{ width: '30%', marginLeft: "100px" }} InputProps={{
@@ -810,30 +810,13 @@ class Main extends React.Component {
                                 {this.state.rows.map((item, idx) => (
                                     <tr id="addr0" key={idx}>
                                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '25.8vw', marginRight: '20vw', marginTop: '2vh' }}>
-                                            <TextField id="outlined-basic" label="Description" value={this.state.rows[idx].description} onChange={this.setSdesc(idx)} variant="outlined" style={{ width: '17.7vw', marginLeft: "10px" }} InputProps={{
+                                            <TextField id="outlined-basic" label="Description" value={this.state.rows[idx].description} onChange={this.setSdesc(idx)} variant="outlined" style={{ width: '25vw', marginLeft: "10px" }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 }
                                             }} />
-                                            <FormControl variant="outlined" className={classes.formControl} style={{ marginLeft: "10px" }}>
-                                                <InputLabel>Month</InputLabel>
-                                                <Select
-                                                    style={{ width: "150px" }}
-                                                    input={
-                                                        <OutlinedInput
-                                                            label="Month"
-                                                            classes={classes}
-                                                        />
-                                                    }
-                                                    value={this.state.rows[idx].month}
-                                                    onChange={this.setSmonth(idx)}
-                                                >
-                                                    <MenuItem value={10}>January</MenuItem>
-                                                    <MenuItem value={20}>February</MenuItem>
-                                                    <MenuItem value={30}>March</MenuItem>
-                                                </Select>
-                                            </FormControl>
-                                            <TextField id="outlined-basic" label="Year" value={this.state.rows[idx].year} onChange={this.setSyear(idx)} variant="outlined" style={{ width: '17.8vw', marginLeft: "10px" }} InputProps={{
+
+                                            <TextField id="outlined-basic" label="Duration" value={this.state.rows[idx].year} onChange={this.setSyear(idx)} variant="outlined" style={{ width: '15vw', marginLeft: "10px" }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 }
@@ -942,7 +925,7 @@ class Main extends React.Component {
                         </div>
                     </div>
                 );
-            case 3: 
+            case 3:
                 return(
                     <div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -1204,6 +1187,9 @@ class Main extends React.Component {
                 <div style={{ position: "fixed", bottom: "5vh", right: "2vw" }}>
                     {activeStep === steps.length-1 ? (
                         <div>
+                            <Button onClick={this.handleBack} className={classes.backButton}>
+                                Back
+                            </Button>
                             <Button onClick={this.onSubmit}>Submit</Button>
                         </div>
                     ) : (
