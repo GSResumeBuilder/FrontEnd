@@ -98,6 +98,7 @@ class Main extends React.Component {
             psOtl: [],
             softskills: [],
             os: [],
+            wd: [],
             fname: "",
             lname: "",
             dob: "" ,
@@ -219,6 +220,7 @@ class Main extends React.Component {
             work_experience: this.state.workex,
             platforms_os: this.state.os,
             platforms_ps: this.state.psOtl,
+            platforms_wd: this.state.wd,
             platforms_ss: this.state.softskills,
             courses_core: this.state.core,
             courses_depth: this.state.depth,
@@ -242,8 +244,8 @@ class Main extends React.Component {
     };
     handleAddRow = () => {
         const item = {
-            description: "",
-            duration: ""
+            sa_description: "",
+            sa_duration: ""
         };
         this.setState({
             rows: [...this.state.rows, item],
@@ -252,9 +254,9 @@ class Main extends React.Component {
     };
     handleAddProject = () => {
         const item = {
-            title: "",
-            duration: "",
-            description: ""
+            pro_title: "",
+            pro_duration: "",
+            pro_description: ""
         };
         this.setState({
             projects: [...this.state.projects, item],
@@ -262,9 +264,9 @@ class Main extends React.Component {
     };
     handleAddWork = () => {
         const item = {
-            place: "",
-            duration: "",
-            description: ""
+            work_place: "",
+            work_duration: "",
+            work_description: ""
         };
         this.setState({
             workex: [...this.state.workex, item],
@@ -272,9 +274,9 @@ class Main extends React.Component {
     };
     handleAddPos = () => {
         const item = {
-            position: "",
-            duration: "",
-            description: ""
+            pos_position: "",
+            pos_duration: "",
+            pos_description: ""
         };
         this.setState({
             pos: [...this.state.pos, item],
@@ -282,9 +284,9 @@ class Main extends React.Component {
     };
     handleAddEca = () => {
         const item = {
-            event: "",
-            duration: "",
-            description: ""
+            ec_event: "",
+            ec_duration: "",
+            ec_description: ""
         };
         this.setState({
             eca: [...this.state.eca, item],
@@ -453,13 +455,13 @@ class Main extends React.Component {
 
     setSdesc = idx => e => {
         this.setState({
-            ...this.state.rows[idx].description = e.target.value
+            ...this.state.rows[idx].sa_description = e.target.value
         })
     };
 
     setSyear = idx => e => {
         this.setState({
-            ...this.state.rows[idx].duration = e.target.value
+            ...this.state.rows[idx].sa_duration = e.target.value
         })
     };
 
@@ -471,37 +473,37 @@ class Main extends React.Component {
 
     setPtitle = idx => e => {
         this.setState({
-            ...this.state.projects[idx].title= e.target.value
+            ...this.state.projects[idx].pro_title= e.target.value
         })
     };
 
     setPdesc = idx => e => {
         this.setState({
-            ...this.state.projects[idx].description = e.target.value
+            ...this.state.projects[idx].pro_description = e.target.value
         })
     };
 
     setPdur = idx => e => {
         this.setState({
-            ...this.state.projects[idx].duration = e.target.value
+            ...this.state.projects[idx].pro_duration = e.target.value
         })
     };
 
     setWplace = idx => e => {
         this.setState({
-            ...this.state.workex[idx].place= e.target.value
+            ...this.state.workex[idx].work_place= e.target.value
         })
     };
 
     setWdesc = idx => e => {
         this.setState({
-            ...this.state.workex[idx].description = e.target.value
+            ...this.state.workex[idx].work_description = e.target.value
         })
     };
 
     setWdur = idx => e => {
         this.setState({
-            ...this.state.workex[idx].duration = e.target.value
+            ...this.state.workex[idx].work_duration = e.target.value
         })
     };
 
@@ -539,39 +541,56 @@ class Main extends React.Component {
         this.setState({ os: newTags });
     }
 
+    addWd = (e) => {
+        const val = e.target.value;
+        if (e.key === 'Enter' && val) {
+            if (this.state.os.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+                return;
+            }
+            this.setState({ wd: [...this.state.wd, val]});
+            e.target.value = null;
+        }
+    }
+
+    removeWd = (i) => {
+        const newTags = [ ...this.state.wd ];
+        newTags.splice(i, 1);
+        this.setState({ wd: newTags });
+    }
+
     setPosp = idx => e => {
         this.setState({
-            ...this.state.pos[idx].position= e.target.value
+            ...this.state.pos[idx].pos_position= e.target.value
         })
     };
 
     setPosdur = idx => e => {
         this.setState({
-            ...this.state.pos[idx].duration = e.target.value
+            ...this.state.pos[idx].pos_duration = e.target.value
         })
     };
 
     setPosdesc = idx => e => {
         this.setState({
-            ...this.state.pos[idx].description = e.target.value
+            ...this.state.pos[idx].pos_description = e.target.value
         })
     };
 
     setEcae = idx => e => {
         this.setState({
-            ...this.state.eca[idx].event= e.target.value
+            ...this.state.eca[idx].ec_event= e.target.value
         })
     };
 
     setEcadur= idx => e => {
         this.setState({
-            ...this.state.eca[idx].duration = e.target.value
+            ...this.state.eca[idx].ec_duration = e.target.value
         })
     };
 
     setEcadesc = idx => e => {
         this.setState({
-            ...this.state.eca[idx].description = e.target.value
+            ...this.state.eca[idx].ec_description = e.target.value
         })
     };
 
@@ -936,10 +955,13 @@ class Main extends React.Component {
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
                             <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "5vh" }}>
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
-                                    Operating Skills
+                                    Operating Systems
                                 </Typography>
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
                                     Programming Skills
+                                </Typography>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
+                                    Web Designing
                                 </Typography>
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
                                     Software Skills
@@ -976,6 +998,26 @@ class Main extends React.Component {
                                         ))}
                                         <li className="input-tag__tags__input">
                                             <TextField onKeyDown={this.addPs} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
+                                                classes: {
+                                                    notchedOutline: classes.notchedOutline
+                                                },
+                                                style: {
+                                                    height: '40px'
+                                                }
+                                            }} />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style={{ display: 'flex', marginTop: "1vh"}}>
+                                    <ul className="input-tag__tags">
+                                        {this.state.wd.map((tag, i) => (
+                                            <li key={tag}>
+                                                {tag}
+                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeWd(i); }}/>
+                                            </li>
+                                        ))}
+                                        <li className="input-tag__tags__input">
+                                            <TextField onKeyDown={this.addWd} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 },
