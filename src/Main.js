@@ -544,7 +544,7 @@ class Main extends React.Component {
     addWd = (e) => {
         const val = e.target.value;
         if (e.key === 'Enter' && val) {
-            if (this.state.os.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+            if (this.state.wd.find(tag => tag.toLowerCase() === val.toLowerCase())) {
                 return;
             }
             this.setState({ wd: [...this.state.wd, val]});
@@ -798,7 +798,7 @@ class Main extends React.Component {
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "15px", marginRight: "10px", width: "180px" }}>
                                 10th
                             </Typography>
-                            <TextField id="outlined-basic" label="Year" value={this.state.setSyear} onChange={this.setSsy} variant="outlined" style={{ width: '30%', marginLeft: "90px" }} InputProps={{
+                            <TextField id="outlined-basic" label="Year" value={this.state.ssyear} onChange={this.setSsy} variant="outlined" style={{ width: '30%', marginLeft: "90px" }} InputProps={{
                                 classes: {
                                     notchedOutline: classes.notchedOutline
                                 }
@@ -829,13 +829,13 @@ class Main extends React.Component {
                                 {this.state.rows.map((item, idx) => (
                                     <tr id="addr0" key={idx}>
                                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '25.8vw', marginRight: '20vw', marginTop: '2vh' }}>
-                                            <TextField id="outlined-basic" label="Description" value={this.state.rows[idx].description} onChange={this.setSdesc(idx)} variant="outlined" style={{ width: '25vw', marginLeft: "10px" }} InputProps={{
+                                            <TextField id="outlined-basic" label="Description" value={this.state.rows[idx].sa_description} onChange={this.setSdesc(idx)} variant="outlined" style={{ width: '25vw', marginLeft: "10px" }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 }
                                             }} />
 
-                                            <TextField id="outlined-basic" label="Duration" value={this.state.rows[idx].year} onChange={this.setSyear(idx)} variant="outlined" style={{ width: '15vw', marginLeft: "10px" }} InputProps={{
+                                            <TextField id="outlined-basic" label="Duration" value={this.state.rows[idx].sa_duration} onChange={this.setSyear(idx)} variant="outlined" style={{ width: '15vw', marginLeft: "10px" }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
                                                 }
@@ -869,19 +869,19 @@ class Main extends React.Component {
                                     {this.state.projects.map((item, idx) => (
                                         <tr id="addr0" key={idx}>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField id="outlined-basic" label="Title" variant="outlined" value={this.state.projects[idx].title} onChange={this.setPtitle(idx)} style={{ width: '20vw' }} InputProps={{
+                                                <TextField id="outlined-basic" label="Title" variant="outlined" value={this.state.projects[idx].pro_title} onChange={this.setPtitle(idx)} style={{ width: '20vw' }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
-                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.projects[idx].duration} onChange={this.setPdur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.projects[idx].pro_duration} onChange={this.setPdur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
                                             </div>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.projects[idx].description} onChange={this.setPdesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.projects[idx].pro_description} onChange={this.setPdesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
@@ -910,19 +910,19 @@ class Main extends React.Component {
                                     {this.state.workex.map((item, idx) => (
                                         <tr id="addr0" key={idx}>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField id="outlined-basic" label="Place" variant="outlined" value={this.state.workex[idx].place} onChange={this.setWplace(idx)} style={{ width: '20vw' }} InputProps={{
+                                                <TextField id="outlined-basic" label="Place" variant="outlined" value={this.state.workex[idx].work_place} onChange={this.setWplace(idx)} style={{ width: '20vw' }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
-                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.workex[idx].duration} onChange={this.setWdur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.workex[idx].work_duration} onChange={this.setWdur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
                                             </div>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.workex[idx].description} onChange={this.setWdesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.workex[idx].work_description} onChange={this.setWdesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
@@ -1121,19 +1121,19 @@ class Main extends React.Component {
                                     {this.state.pos.map((item, idx) => (
                                         <tr id="addr0" key={idx}>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField id="outlined-basic" label="Position" variant="outlined" value={this.state.pos[idx].position} onChange={this.setPosp(idx)} style={{ width: '20vw' }} InputProps={{
+                                                <TextField id="outlined-basic" label="Position" variant="outlined" value={this.state.pos[idx].pos_position} onChange={this.setPosp(idx)} style={{ width: '20vw' }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
-                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.pos[idx].duration} onChange={this.setPosdur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.pos[idx].pos_duration} onChange={this.setPosdur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
                                             </div>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.pos[idx].description} onChange={this.setPosdesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.pos[idx].pos_description} onChange={this.setPosdesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
@@ -1162,19 +1162,19 @@ class Main extends React.Component {
                                     {this.state.eca.map((item, idx) => (
                                         <tr id="addr0" key={idx}>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField id="outlined-basic" label="Event" variant="outlined" value={this.state.eca[idx].event} onChange={this.setEcae(idx)} style={{ width: '20vw' }} InputProps={{
+                                                <TextField id="outlined-basic" label="Event" variant="outlined" value={this.state.eca[idx].ec_event} onChange={this.setEcae(idx)} style={{ width: '20vw' }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
-                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.eca[idx].duration} onChange={this.setEcadur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
+                                                <TextField id="outlined-basic" label="Duration" variant="outlined" value={this.state.eca[idx].ec_duration} onChange={this.setEcadur(idx)} style={{ width: '20vw', marginLeft: "2vw" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
                                                 }} />
                                             </div>
                                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
-                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.eca[idx].description} onChange={this.setEcadesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
+                                                <TextField multiline rows={8} id="outlined-basic" label="Description" variant="outlined" value={this.state.eca[idx].ec_description} onChange={this.setEcadesc(idx)} style={{ width: '42vw', marginTop: "2vh" }} InputProps={{
                                                     classes: {
                                                         notchedOutline: classes.notchedOutline
                                                     }
