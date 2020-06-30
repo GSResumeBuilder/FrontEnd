@@ -1247,6 +1247,15 @@ class Main extends React.Component {
                             </div>
                         )}
                 </div>
+                <div>
+                    <footer class="footer">
+                        <div class="footer__inner">
+                            <div class="footer__content">
+                                <span>&copy; 2020 Made with &#10084; by <a href="https://github.com/devabhixda" style={{color: "#999"}}>Abhi Jain</a> and <a href="https://github.com/YashTayal04" style={{color: "#999"}}>Yash Tayal</a></span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
             </div>
         );
     }

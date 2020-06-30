@@ -60,3 +60,30 @@
     flex-grow: 1;
     padding: 0;
   }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    padding: 20px 10px;
+    margin-left: -10px;
+    flex-grow: 0;
+    width: 100%;
+  }
+
+  .footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 760px;
+    max-width: 100%;
+  }
+  
+  .footer__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    color: #999;
+    font-family: Poppins;
+  }
