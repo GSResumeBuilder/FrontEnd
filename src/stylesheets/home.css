@@ -87,3 +87,12 @@
     color: #999;
     font-family: Poppins;
   }
+
+  .logo_cont{
+    margin-left: 10vw;
+    margin-top: 18vh;
+  }
+
+  .logo{
+    width: 50%;
+  }

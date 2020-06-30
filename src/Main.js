@@ -25,6 +25,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import outlineLibraryAdd from '@iconify/icons-ic/outline-library-add';
 import closeCircleOutlined from '@iconify/icons-ant-design/close-circle-outlined';
 import axios from 'axios';
+import logo from './images/logo.png';
 
 const resblue = "#256DDA80";
 const kindagrey = "#BEBEBE";
@@ -602,8 +603,11 @@ class Main extends React.Component {
             case 0:
                 return (
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
-                        <div>
-                            <Icon icon={personCircle} style={{ fontSize: '200px', color: "#256DDA80", marginTop: '30%', marginLeft: '20%' }} />
+                        <div className="logo_cont">
+                            <img src={logo} className="logo" />
+                            <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "15px", marginLeft: "5px"}}>
+                                Resume Builder
+                            </Typography>
                         </div>
                         <div style={{ width: "30px", display: "table" }}>
                             <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
