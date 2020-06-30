@@ -228,7 +228,7 @@ class Main extends React.Component {
             positions: this.state.pos,
             extracurricular: this.state.eca
         }
-        axios.post('http://127.0.0.1:5000/', resume)
+        axios.post('http://gsresumebuilder.pythonanywhere.com/', resume)
         .then(function (response) {
             console.log(response);
         });
