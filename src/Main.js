@@ -1230,7 +1230,7 @@ class Main extends React.Component {
                             </div>
                         )}
                 </div>
-                <div style={{ position: "fixed", bottom: "5vh", right: "2vw" }}>
+                <div style={{ position: "relative", bottom: "0", flexGrow: "0" ,width: "10%", maxWidth: "100%", margin: "0 85%"}}>
                     {activeStep === steps.length-1 ? (
                         <div>
                             <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
@@ -1255,7 +1255,7 @@ class Main extends React.Component {
                     <footer class="footer">
                         <div class="footer__inner">
                             <div class="footer__content">
-                                <span>&copy; 2020 Made with &#10084; by <a href="https://github.com/devabhixda" style={{color: "#999"}}>Abhi Jain</a> and <a href="https://github.com/YashTayal04" style={{color: "#999"}}>Yash Tayal</a></span>
+                                <span>&copy; 2020 Made with &#10084; by <a href="https://github.com/devabhixda" style={{color: "#999"}}>Abhi Jain</a> , <a href="https://github.com/YashTayal04" style={{color: "#999"}}>Yash Tayal</a> and <a href="https://github.com/gargnityansh" style={{color: "#999"}}>Nityansh Garg</a></span>
                             </div>
                         </div>
                     </footer>
