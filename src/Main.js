@@ -228,7 +228,7 @@ class Main extends React.Component {
             positions: this.state.pos,
             extracurricular: this.state.eca
         }
-        axios.post('http://gsresumebuilder.pythonanywhere.com/', resume)
+        axios.post('https://gsresumebuilder.pythonanywhere.com/', resume)
         .then(function (response) {
             console.log(response);
         });
