@@ -228,7 +228,7 @@ class Main extends React.Component {
             positions: this.state.pos,
             extracurricular: this.state.eca
         }
-        axios.post('http://127.0.0.1:5000/', resume)
+        axios.post('https://gsresumebuilder.pythonanywhere.com/', resume)
         .then(function (response) {
             console.log(response);
         });
@@ -338,7 +338,6 @@ class Main extends React.Component {
     }
 
     onDobChange = (e) => {
-        console.log(e.target.value);
         this.setState({
             dob: e.target.value
         })
