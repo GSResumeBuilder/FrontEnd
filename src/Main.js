@@ -809,7 +809,7 @@ class Main extends React.Component {
                             }} />
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '10vw', marginRight: '10vw', marginTop: '2vh' }}>
-                            <Typography style={{ fontFamily: 'Poppins', fontSize: "20px", marginTop: "15px", marginRight: "10px" }}>
+                            <Typography style={{ fontFamily: 'Poppins', fontSize: "20px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                                 Scholastic achievements
                             </Typography>
                         </div>
@@ -849,7 +849,7 @@ class Main extends React.Component {
             case 2:
                 return (
                     <div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Projects
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
@@ -890,7 +890,7 @@ class Main extends React.Component {
                                     </div>
                                 )}
                         </div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Work Experience
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
@@ -937,7 +937,7 @@ class Main extends React.Component {
                 return(
                     <div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                                 Platforms Worked
                             </Typography>
                         </div>
@@ -1040,7 +1040,7 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "30px", marginRight: "10px" }}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "30px", marginRight: "10px", color: "#BEBEBE" }}>
                                 Courses Undertaken
                             </Typography>
                         </div>
@@ -1101,7 +1101,7 @@ class Main extends React.Component {
             case 4:
                 return(
                     <div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Position of responsiblities
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
@@ -1142,7 +1142,7 @@ class Main extends React.Component {
                                     </div>
                                 )}
                         </div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Extracurricular activities
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
