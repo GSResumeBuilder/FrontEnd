@@ -22,6 +22,7 @@ import outlineLibraryAdd from '@iconify/icons-ic/outline-library-add';
 import closeCircleOutlined from '@iconify/icons-ant-design/close-circle-outlined';
 import axios from 'axios';
 import logo from './images/logo.png';
+import submit from './images/submit.gif';
 
 const resblue = "#256DDA80";
 const kindagrey = "#BEBEBE";
@@ -218,6 +219,9 @@ class Main extends React.Component {
         .then(function (response) {
             console.log(response);
         });
+        this.setState(state => ({
+            activeStep: this.state.activeStep + 1,
+        }));
     }
     handleChange = idx => e => {
         const { name, value } = e.target;
@@ -1207,35 +1211,39 @@ class Main extends React.Component {
                 <div>
                     {activeStep === steps.length ? (
                         <div>
-                            {this.getStepContent(activeStep-1)}
+                            <img src = {submit} className="submit"/>
+                            <Typography style={{ display: 'block', textAlign: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "30px", marginTop: "10vh", marginBottom: "9vh", color: "#BEBEBE"}}>
+                                Thank you for using GSResumeBuilder, <br /> please check your mailbox for the generated document.
+                            </Typography>
                         </div>
                     ) : (
-                            <div>
-                                {this.getStepContent(activeStep)}
-                            </div>
-                        )}
-                </div>
-                <div style={{ position: "relative", bottom: "0", flexGrow: "0" ,width: "10%", maxWidth: "100%", margin: "0 85%"}}>
-                    {activeStep === steps.length-1 ? (
                         <div>
-                            <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
-                                Back
-                            </Button>
-                            <Button onClick={this.onSubmit}>Submit</Button>
-                        </div>
-                    ) : (
-                            <div>
-                                <div>
-                                    <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
-                                        Back
-                                    </Button>
-                                    <Button variant="contained" color="primary" onClick={this.handleNext}>
-                                        Next
-                                    </Button>
-                                </div>
+                            {this.getStepContent(activeStep)}
+                            <div style={{ position: "relative", bottom: "0", flexGrow: "0" ,width: "10%", maxWidth: "100%", margin: "0 85%"}}>
+                                {activeStep === steps.length-1 ? (
+                                    <div>
+                                        <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
+                                            Back
+                                        </Button>
+                                        <Button onClick={this.onSubmit}>Submit</Button>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <div>
+                                            <Button disabled={activeStep === 0} onClick={this.handleBack} className={classes.backButton}>
+                                                Back
+                                            </Button>
+                                            <Button variant="contained" color="primary" onClick={this.handleNext}>
+                                                Next
+                                            </Button>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                        )}
+                        </div>
+                    )}
                 </div>
+                
                 <div>
                     <footer class="footer">
                         <div class="footer__inner">
