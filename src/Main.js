@@ -338,7 +338,6 @@ class Main extends React.Component {
     }
 
     onDobChange = (e) => {
-        console.log(e.target.value);
         this.setState({
             dob: e.target.value
         })
