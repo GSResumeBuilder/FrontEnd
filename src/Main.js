@@ -3,8 +3,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import { Icon, InlineIcon } from '@iconify/react';
-import personCircle from '@iconify/icons-bi/person-circle';
+import { Icon } from '@iconify/react';
 import deleteOutlined from '@iconify/icons-ant-design/delete-outlined';
 import Typography from '@material-ui/core/Typography';
 import './stylesheets/home.css';
@@ -17,11 +16,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-import InputBase from '@material-ui/core/InputBase';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import OutlinedInput from "@material-ui/core/OutlinedInput";
-import { Link, Router } from 'react-router-dom'
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import outlineLibraryAdd from '@iconify/icons-ic/outline-library-add';
 import closeCircleOutlined from '@iconify/icons-ant-design/close-circle-outlined';
 import axios from 'axios';
@@ -68,16 +64,6 @@ const useStyles = (theme) => ({
     focused: {},
     notchedOutline: {}
 });
-
-const GreenCheckbox = withStyles({
-    root: {
-      color: kindagrey,
-      '&$checked': {
-        color: resblue,
-      },
-    },
-    checked: {},
-  })((props) => <Checkbox color="default" {...props} />);
 
 function getSteps() {
     return ['Personal', 'Academic', 'Projects', 'Platforms', 'Positions'];
