@@ -618,7 +618,7 @@ class Main extends React.Component {
                                 Phone
                             </Typography>
                         </div>
-                        <div style={{ marginLeft: "-400px" }}>
+                        <div style={{ marginLeft: "-25vw" }}>
                             <div style={{ flexDirection: "row", display: "inline-flex" }}>
                                 <TextField id="outlined-basic" label="First" variant="outlined" value={this.state.fname} onChange={this.onFNameChange} style={{ marginRight: "20px" }} InputProps={{
                                     classes: {
