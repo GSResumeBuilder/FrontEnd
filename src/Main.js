@@ -941,7 +941,12 @@ class Main extends React.Component {
                 return(
                     <div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', color: "#BEBEBE" }}>
+                                (Press enter after each entry to add tag.)
+                            </Typography>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", color: "#BEBEBE" }}>
                                 Platforms Worked
                             </Typography>
                         </div>
