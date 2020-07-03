@@ -951,7 +951,7 @@ class Main extends React.Component {
                             </Typography>
                         </div>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
-                            <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "5vh" }}>
+                            <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "2vh" }}>
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
                                     Operating Systems
                                 </Typography>
@@ -965,16 +965,16 @@ class Main extends React.Component {
                                     Software Skills
                                 </Typography>
                             </div>
-                            <div style={{display: "table", marginTop: "5vh" }}>
+                            <div style={{display: "table", marginTop: "2vh" }}>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
-                                        {this.state.os.map((tag, i) => (
-                                            <li key={tag}>
-                                                {tag}
-                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeOs(i); }}/>
-                                            </li>
-                                        ))}
                                         <li className="input-tag__tags__input">
+                                            {this.state.os.map((tag, i) => (
+                                                <li key={tag}>
+                                                    {tag}
+                                                    <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeOs(i); }}/>
+                                                </li>
+                                            ))}   
                                             <TextField onKeyDown={this.addOs} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
@@ -982,19 +982,20 @@ class Main extends React.Component {
                                                 style: {
                                                     height: '40px'
                                                 }
-                                            }} />
+                                            }} > 
+                                            </TextField>
                                         </li>
                                     </ul>
                                 </div>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
-                                        {this.state.psOtl.map((tag, i) => (
-                                            <li key={tag}>
-                                                {tag}
-                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removePs(i); }}/>
-                                            </li>
-                                        ))}
                                         <li className="input-tag__tags__input">
+                                            {this.state.psOtl.map((tag, i) => (
+                                                <li key={tag}>
+                                                    {tag}
+                                                    <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removePs(i); }}/>
+                                                </li>
+                                            ))}
                                             <TextField onKeyDown={this.addPs} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
@@ -1008,13 +1009,13 @@ class Main extends React.Component {
                                 </div>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
-                                        {this.state.wd.map((tag, i) => (
-                                            <li key={tag}>
-                                                {tag}
-                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeWd(i); }}/>
-                                            </li>
-                                        ))}
                                         <li className="input-tag__tags__input">
+                                            {this.state.wd.map((tag, i) => (
+                                                <li key={tag}>
+                                                    {tag}
+                                                    <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeWd(i); }}/>
+                                                </li>
+                                            ))}
                                             <TextField onKeyDown={this.addWd} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
@@ -1028,13 +1029,13 @@ class Main extends React.Component {
                                 </div>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
-                                        {this.state.softskills.map((tag, i) => (
-                                            <li key={tag}>
-                                                {tag}
-                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeSoftskill(i); }}/>
-                                            </li>
-                                        ))}
                                         <li className="input-tag__tags__input">
+                                            {this.state.softskills.map((tag, i) => (
+                                                <li key={tag}>
+                                                    {tag}
+                                                    <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeSoftskill(i); }}/>
+                                                </li>
+                                            ))}
                                             <TextField onKeyDown={this.addSoftskill} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
@@ -1054,7 +1055,7 @@ class Main extends React.Component {
                             </Typography>
                         </div>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
-                            <div style={{ width: "5vw", display: "table", marginLeft: "25vw", marginTop: "5vh" }}>
+                            <div style={{ width: "5vw", display: "table", marginLeft: "25vw", marginTop: "2vh" }}>
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
                                     Core
                                 </Typography>
@@ -1062,16 +1063,16 @@ class Main extends React.Component {
                                     Depth
                                 </Typography>
                             </div>
-                            <div style={{display: "table", marginTop: "4vh"}}>
+                            <div style={{display: "table", marginTop: "1vh"}}>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
-                                        {core.map((tag, i) => (
-                                            <li key={tag}>
-                                                {tag}
-                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeCore(i); }}/>
-                                            </li>
-                                        ))}
                                         <li className="input-tag__tags__input">
+                                            {core.map((tag, i) => (
+                                                <li key={tag}>
+                                                    {tag}
+                                                    <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeCore(i); }}/>
+                                                </li>
+                                            ))}
                                             <TextField onKeyDown={this.addCore} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
@@ -1085,13 +1086,13 @@ class Main extends React.Component {
                                 </div>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
-                                        {depth.map((tag, i) => (
-                                            <li key={tag}>
-                                                {tag}
-                                                <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeDepth(i); }}/>
-                                            </li>
-                                        ))}
                                         <li className="input-tag__tags__input">
+                                            {depth.map((tag, i) => (
+                                                <li key={tag}>
+                                                    {tag}
+                                                    <Icon icon={closeCircleOutlined} color={"red"} style={{fontSize: "28px", marginLeft: "0.5vw"}} onClick={() => { this.removeDepth(i); }}/>
+                                                </li>
+                                            ))}
                                             <TextField onKeyDown={this.addDepth} id="outlined-basic" variant="outlined" style={{ width: '10vw' }} InputProps={{
                                                 classes: {
                                                     notchedOutline: classes.notchedOutline
