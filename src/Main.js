@@ -951,7 +951,7 @@ class Main extends React.Component {
                             </Typography>
                         </div>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
-                            <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "2vh" }}>
+                            <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "2vh", position: "absolute" }}>
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
                                     Operating Systems
                                 </Typography>
@@ -965,7 +965,7 @@ class Main extends React.Component {
                                     Software Skills
                                 </Typography>
                             </div>
-                            <div style={{display: "table", marginTop: "2vh" }}>
+                            <div style={{display: "table", marginTop: "2vh", marginLeft: "60vw", position: "absolute" }}>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
                                         <li className="input-tag__tags__input">
@@ -1049,7 +1049,7 @@ class Main extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "30vh"}}>
                             <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "30px", marginRight: "10px", color: "#BEBEBE" }}>
                                 Courses Undertaken
                             </Typography>
@@ -1063,7 +1063,7 @@ class Main extends React.Component {
                                     Depth
                                 </Typography>
                             </div>
-                            <div style={{display: "table", marginTop: "1vh"}}>
+                            <div style={{display: "table", marginTop: "2vh", marginLeft: "60vw", position: "absolute"}}>
                                 <div style={{ display: 'flex', marginTop: "1vh"}}>
                                     <ul className="input-tag__tags">
                                         <li className="input-tag__tags__input">
