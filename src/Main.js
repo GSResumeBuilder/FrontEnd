@@ -866,7 +866,7 @@ class Main extends React.Component {
             case 2:
                 return (
                     <div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "2vw", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Projects
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
@@ -907,7 +907,7 @@ class Main extends React.Component {
                                     </div>
                                 )}
                         </div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "2vw", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Work Experience
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
@@ -959,22 +959,22 @@ class Main extends React.Component {
                             </Typography>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", color: "#BEBEBE" }}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "2vw", color: "#BEBEBE" }}>
                                 Platforms Worked
                             </Typography>
                         </div>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
                             <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "2vh", position: "absolute" }}>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "2vw"}}>
                                     Operating Systems
                                 </Typography>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "2vw"}}>
                                     Programming Skills
                                 </Typography>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "2vw"}}>
                                     Web Designing
                                 </Typography>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px", marginTop: "1vh"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "2vw"}}>
                                     Software Skills
                                 </Typography>
                             </div>
@@ -993,7 +993,7 @@ class Main extends React.Component {
                                                     notchedOutline: classes.notchedOutline
                                                 },
                                                 style: {
-                                                    height: '40px'
+                                                    height: '2.5vw'
                                                 }
                                             }} > 
                                             </TextField>
@@ -1014,7 +1014,7 @@ class Main extends React.Component {
                                                     notchedOutline: classes.notchedOutline
                                                 },
                                                 style: {
-                                                    height: '40px'
+                                                    height: '2.5vw'
                                                 }
                                             }} />
                                         </li>
@@ -1034,7 +1034,7 @@ class Main extends React.Component {
                                                     notchedOutline: classes.notchedOutline
                                                 },
                                                 style: {
-                                                    height: '40px'
+                                                    height: '2.5vw'
                                                 }
                                             }} />
                                         </li>
@@ -1054,7 +1054,7 @@ class Main extends React.Component {
                                                     notchedOutline: classes.notchedOutline
                                                 },
                                                 style: {
-                                                    height: '40px'
+                                                    height: '2.5vw'
                                                 }
                                             }} />
                                         </li>
@@ -1063,16 +1063,16 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "30vh"}}>
-                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "30px", marginRight: "10px", color: "#BEBEBE" }}>
+                            <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "2vw", marginTop: "30px", marginRight: "10px", color: "#BEBEBE" }}>
                                 Courses Undertaken
                             </Typography>
                         </div>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
                             <div style={{ width: "5vw", display: "table", marginLeft: "25vw", marginTop: "2vh" }}>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "2vw"}}>
                                     Core
                                 </Typography>
-                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "30px"}}>
+                                <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "2vw"}}>
                                     Depth
                                 </Typography>
                             </div>
@@ -1091,7 +1091,7 @@ class Main extends React.Component {
                                                     notchedOutline: classes.notchedOutline
                                                 },
                                                 style: {
-                                                    height: '40px'
+                                                    height: '2.5vw'
                                                 }
                                             }} />
                                         </li>
@@ -1111,7 +1111,7 @@ class Main extends React.Component {
                                                     notchedOutline: classes.notchedOutline
                                                 },
                                                 style: {
-                                                    height: '40px'
+                                                    height: '2.5vw'
                                                 }
                                             }} />
                                         </li>
@@ -1124,7 +1124,7 @@ class Main extends React.Component {
             case 4:
                 return(
                     <div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "2vw", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Position of responsiblities
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
@@ -1165,7 +1165,7 @@ class Main extends React.Component {
                                     </div>
                                 )}
                         </div>
-                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "40px", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
+                        <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontFamily: 'Poppins', fontSize: "2vw", marginTop: "15px", marginRight: "10px", color: "#BEBEBE" }}>
                             Extracurricular activities
                         </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '2vh' }}>
