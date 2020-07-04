@@ -107,10 +107,23 @@ class Main extends React.Component {
             ssyear: "",
             ssboard: "",
             ssinsti: "",
-            sscgpa:""
+            sscgpa:"",
+            isPhone: false
         }
     }
 
+    componentDidMount() {
+        this.updatePredicate();
+        window.addEventListener("resize", this.updatePredicate);
+    }
+
+    updatePredicate() {
+        this.setState({ isPhone: window.innerWidth < 1200 });
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updatePredicate);
+    }
 
     removeCore = (i) => {
         const newTags = [ ...this.state.core ];
@@ -1203,7 +1216,22 @@ class Main extends React.Component {
         const steps = getSteps();
         const { activeStep } = this.state;
         const { classes } = this.props;
-        return (
+        const isPhone = this.state.isPhone;
+        if(isPhone) {
+            return (
+                <div className="mroot">
+                    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: "10vh"}}>
+                        <img src={logo} className="logo" />
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: "justify", textJustify: "inter-word", marginLeft: "2vw", marginRight: "2vw"}}>
+                        <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "10vw"}}>
+                            This website is usable only on desktop as of now.
+                        </Typography>
+                    </div>
+                </div>
+            )
+        }
+        else return (
             <div className={classes.root}>
                 <Stepper activeStep={activeStep} alternativeLabel>
                     {steps.map((label) => (
