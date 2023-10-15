@@ -758,6 +758,11 @@ class Main extends React.Component {
                                     <MenuItem value={"2021"}>2021</MenuItem>
                                     <MenuItem value={"2022"}>2022</MenuItem>
                                     <MenuItem value={"2023"}>2023</MenuItem>
+                                    <MenuItem value={"2024"}>2024</MenuItem>
+                                    <MenuItem value={"2025"}>2025</MenuItem>
+                                    <MenuItem value={"2026"}>2026</MenuItem>
+                                    <MenuItem value={"2027"}>2027</MenuItem>
+                                    <MenuItem value={"2028"}>2028</MenuItem>
                                 </Select>
                             </FormControl>
                             <TextField id="outlined-basic" label="CGPA" value={this.state.gcgpa} onChange={this.setGcgpa} variant="outlined" style={{ width: '30%', marginLeft: "10px" }} InputProps={{
@@ -963,7 +968,7 @@ class Main extends React.Component {
                                 Platforms Worked
                             </Typography>
                         </div>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center'}}>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", justifyContent: 'center', alignItems: 'center', marginTop: '12vh'}}>
                             <div style={{ width: "20vw", display: "table", marginLeft: "25vw", marginTop: "2vh", position: "absolute" }}>
                                 <Typography style={{ fontFamily: 'Poppins', color: "#BEBEBE", fontSize: "2vw"}}>
                                     Operating Systems
@@ -1282,7 +1287,7 @@ class Main extends React.Component {
                     <footer class="footer">
                         <div class="footer__inner">
                             <div class="footer__content">
-                                <span>&copy; 2020 Made with &#10084; by <a href="https://github.com/devabhixda" style={{color: "#999"}}>Abhi Jain</a> , <a href="https://github.com/YashTayal04" style={{color: "#999"}}>Yash Tayal</a> and <a href="https://github.com/gargnityansh" style={{color: "#999"}}>Nityansh Garg</a></span>
+                                <span>&copy; 2020 Made with &#10084; by <a href="https://github.com/devabhixda" style={{color: "#999"}}>Abhi Jain</a> , <a href="https://www.linkedin.com/in/yashtayal341/" style={{color: "#999"}}>Yash Tayal</a> and <a href="https://github.com/gargnityansh" style={{color: "#999"}}>Nityansh Garg</a></span>
                             </div>
                         </div>
                     </footer>
